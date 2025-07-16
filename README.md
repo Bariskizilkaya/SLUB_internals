@@ -34,8 +34,11 @@ Some additional padding bytes are left at the end of the object to make sure tha
 
 Let's dive in then and highlight some of the API exposed to kernel developers for use in modules & device drivers. All defs can be found in /include/linux/gfp.h:  
 
-alloc_pages(gfp_mask, order): Allocate 2order pages (one physically contiguous chunk from the order N freelist) and return a struct page address
-alloc_page(gfp_mask): macro for alloc_pages(gfp_mask, 0)
-__get_free_pages(gfp_mask, order) and __get_free_page(gfp_mask) mirror the above functions, except they return a virtual address to the allocation as opposed to a struct page
-For freeing options include: __free_page(struct page *page), __free_pages(struct page *page, order) and free_page(void *addr)
+-alloc_pages(gfp_mask, order): Allocate 2order pages (one physically contiguous chunk from the order N freelist) and return a struct page address
+
+-alloc_page(gfp_mask): macro for alloc_pages(gfp_mask, 0)
+
+-__get_free_pages(gfp_mask, order) and __get_free_page(gfp_mask) mirror the above functions, except they return a virtual address to the allocation as opposed to a struct page
+
+-For freeing options include: __free_page(struct page *page), __free_pages(struct page *page, order) and free_page(void *addr)
 Plenty more to see if you take a browse of /include/linux/gfp.h
