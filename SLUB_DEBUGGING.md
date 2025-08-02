@@ -10,7 +10,7 @@ define print_slabs
   set $cur = slab_caches.next
   while ($cur != $head)
     set $kmem = (struct kmem_cache *)((char *)$cur - $offset)
-    printf "Slab: %s, size: %d\n", $kmem->name, $kmem->size
+    printf "Slab: %s, size: %d inuse:%d\n", $kmem->name, $kmem->size, $kmem->inuse
     set $cur = $cur->next
   end
 end
