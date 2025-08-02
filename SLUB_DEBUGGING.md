@@ -85,8 +85,34 @@ int main() {
     return 0;
 }
 ```
-I use this code to send 1000 messages but when i try it stuck some how and i checked the IPC message queue and find out that i created 4 different message queue and each queue has 182 message
+I use this code to send 1000 messages but when i try, it stuck some how and i checked the IPC message queue and find out that i created 4 different message queue and each queue has 182 message
 
+
+```
+root@syzkaller:~# ipcs -q
+
+------ Message Queues --------
+key        msqid      owner      perms      used-bytes   messages    
+0x00000000 0          root       666        16380        182         
+0x00000000 1          root       666        16380        182         
+0x00000000 2          root       666        16380        182         
+0x00000000 3          root       666        16380        182         
+
+root@syzkaller:~# cat /proc/sys/kernel/msgmax 
+8192
+root@syzkaller:~# cat /proc/sys/kernel/msgmnb
+16384
+```
+```
+--------------------- before
+(gdb) print_slab_inuse 0xffff888003841c40
+Total slabs: 65
+Total in-use objects: 836
+---------------------- after
+(gdb) print_slab_inuse 0xffff888003841c40
+Total slabs: 79
+Total in-use objects: 1018
+```
 according to the findings when i use the python script below i can see 182 objects are allocated
 
 ```
