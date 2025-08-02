@@ -24,7 +24,6 @@ i can walk through kmem_caches via slab_caches referenced from /mm/slab_common.c
 
 
 but there is a bizare thing that even though i sent 1000 ipc messages inuse doesnt change
-if you have any idea please send me an email and lets discuss about it barskzky2770@gmail.com
 
 
 ```
