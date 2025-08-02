@@ -1,6 +1,6 @@
 ## Cheking the inuse slub usage from gdb
 
-
+```
 (gdb) p &((struct kmem_cache *)0)->list
 $3 = (struct list_head *) 0x68 -------------------------------|
                                                               |
@@ -18,7 +18,7 @@ define print_slabs                                            |
 end
 
 (gdb) print_slabs
-
+```
 
 i can walk through kmem_caches via slab_caches referenced from /mm/slab_common.c
 
