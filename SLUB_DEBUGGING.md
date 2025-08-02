@@ -200,3 +200,5 @@ $9 = (struct kmem_cache *) 0xffff888003841c40
 (gdb) p kmalloc_caches[0][2].name
 $14 = 0xffffffff8256ff3d "kmalloc-192"
 ```
+
+Note: You need to let the vm create those structures and variables by continuing the QEMU to the command line!
