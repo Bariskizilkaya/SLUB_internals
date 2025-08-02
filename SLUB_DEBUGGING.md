@@ -2,12 +2,10 @@
 
 ```
 (gdb) p &((struct kmem_cache *)0)->list
-$3 = (struct list_head *) 0x68 -------------------------------|
-                                                              |
-                                                              |
-                                                              |
-define print_slabs                                            |
-  set $offset = 0x68 <----------------------------------------|
+$3 = (struct list_head *) 0x68 
+                                                                                                                     
+define print_slabs                                            
+  set $offset = 0x68 
   set $head = &slab_caches
   set $cur = slab_caches.next
   while ($cur != $head)
