@@ -193,7 +193,7 @@ PrintSlabInuse()
 (gdb) source test.py
 (gdb) print_slab_inuse 0xffff888003841c40
 ```
-0xffff888003841c40 address of the kmalloc-192 cache whis is coming from there
+0xffff888003841c40 address of the kmalloc-192 cache this is coming from there
 ```
 (gdb) p kmalloc_caches[0][2]
 $9 = (struct kmem_cache *) 0xffff888003841c40
